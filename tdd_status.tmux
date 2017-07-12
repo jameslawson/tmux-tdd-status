@@ -3,7 +3,7 @@
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 tdd_status_output="#($CURRENT_DIR/scripts/tdd_status_output.sh)"
-tdd_status_interpolation_string="\#{online_status}"
+tdd_status_interpolation_string="\#{tdd_status}"
 
 source $CURRENT_DIR/scripts/shared.sh
 
