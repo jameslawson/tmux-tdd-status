@@ -7,7 +7,7 @@
 
 Via [tmux-plugin-manager](https://github.com/tmux-plugins/tpm) (recommended):
 ```
-set -g @plugin 'tmux-plugins/tmux-online-status'
+set -g @plugin 'jameslawson/tmux-tdd-status'
 ```
 
 ## Usage
