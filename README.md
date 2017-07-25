@@ -30,9 +30,14 @@ You'll need to add two pieces of config to your *.tmux.conf* file to:
     The `#{tdd_status}` interpolation will be read and converted to "Unit Tests: PASSING" or "Unit Tests: FAILING" accordingly
     only when the current directory is in the *\@tdd_status_dirs* list. Otherwise, "Unit Tests: N/A" is shown.
 
-> :warning: You'll need to put both of these two bits of config *before* you import the plugin via `@plugin`!
+> :warning: You'll need to put all config *before* you import the plugin via `@plugin`!
 
+## Config
 
+- `@tdd_status_dirs` (*required*) - A comma seperated list of *dir*:*cmd* pairs
+- `@tdd_status_color_fail` (*optional*) - Color of the status when tests are passing. 
+- `@tdd_status_color_pass` (*optional*) - Color of the status when tests are failing. 
+- `@tdd_status_color_none` (*optional*) - Color of the status when no tests are found. 
 
 ## License
 
