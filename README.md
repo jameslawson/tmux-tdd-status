@@ -20,16 +20,16 @@ You'll need to add two pieces of config to your *.tmux.conf* file to:
     /Users/JoeBloggs/another/directory:rake test,\
     /Users/JoeBloggs/yet/another/directory:grunt unit"
     ```
+    The `@tdd_status_dirs` option holds a comma seperated list of *dir*:*cmd* pairs, where 
+    where *dir* is the directory itself and *cmd* is the unit test command 
+    like `npm run test` that should be executed in *dir*
 2. **Configure Status Bar**: configure either *status-left* or *status-right* to add the string interpolation `#{tdd_status}`
     ```bash
     set -g status-right "#{tdd_status} | %a %h-%d %H:%M "
     ```
+    The `#{tdd_status}` interpolation will be read and converted to "Unit Tests: PASSING" or "Unit Tests: FAILING" accordingly
+    only when the current directory is in the *\@tdd_status_dirs* list. Otherwise, "Unit Tests: N/A" is shown.
 
-- The `@tdd_status_dirs` option holds a comma seperated list of *dir*:*cmd* pairs, where 
-  where *dir* is the directory itself and *cmd* is the unit test command 
-  like `npm run test` that should be executed in *dir*
-- The `#{tdd_status}` interpolation will be read and converted to "Unit Tests: PASSING" or "Unit Tests: FAILING" accordingly
-  only when the current directory is in the *\@tdd_status_dirs* list. Otherwise, "Unit Tests: N/A" is shown.
 
 
 
