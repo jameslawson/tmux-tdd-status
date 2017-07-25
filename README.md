@@ -3,6 +3,8 @@
   :white_check_mark: A tmux plugin that displays PASS/FAIL results for unit tests :negative_squared_cross_mark:	  <br>
 </p>
 
+![battery charging](/docs/screenshot.png)
+
 ## Installation
 
 Via [tmux-plugin-manager](https://github.com/tmux-plugins/tpm) (recommended):
