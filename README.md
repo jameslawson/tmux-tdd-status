@@ -30,6 +30,7 @@ You'll need to add two pieces of config to your *.tmux.conf* file to:
     The `#{tdd_status}` interpolation will be read and converted to "Unit Tests: PASSING" or "Unit Tests: FAILING" accordingly
     only when the current directory is in the *\@tdd_status_dirs* list. Otherwise, "Unit Tests: N/A" is shown.
 
+> :warning: You'll need to put both of these two bits of config *before* you import the plugin via `@plugin`!
 
 
 
