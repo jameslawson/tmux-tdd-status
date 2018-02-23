@@ -4,8 +4,7 @@ CURRENT_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 source "$CURRENT_DIR/shared.sh"
 
 TDD_STATUS_DIRS=$(get_tmux_option "@tdd_status_dirs" "")
-PANE_DIR="$(tmux display-message -p -F "#{pane_current_path}" -t0)"
-
+PANE_DIR="$(tmux display-message -p -F "#{pane_current_path}")"
 
 print_status() {
   color_fail=$(get_tmux_option "@tdd_status_color_fail" "#[bg=red] #[fg=black]")
