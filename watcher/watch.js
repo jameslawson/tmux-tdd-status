@@ -26,7 +26,13 @@ const tmuxDir$ = interval(TMUX_DIR_POLL_INTERVAL)
   .map(dir => dir.stdout.trim())
   .distinctUntilChanged();
 
-// every time we enter a tdd directory, run tests and write results
+// -- every time we enter a valid directory in VALID_DIRS
+//    1. create a child process to run tests using the command in VALID_DIRS
+//    2. write STDOUT to the file FILEPATH_STDOUT
+//    3. write the exit code to the file FILEPATH_EXIT_CODE
+// -- if enter a valid directory again during this, ... discard the results
+//    and re-run the steps for the new directory
+
 const write$ = tmuxDir$
   .filter(dir => VALID_DIRS[dir] !== undefined)
   .switchMap(dir => {
@@ -40,7 +46,7 @@ const write$ = tmuxDir$
     return fromPromise(all([codeWrite, stdoutWrite]));
   });
 
-// every time we leave a tdd directory, run tests and write results
+// -- every time we leave a tdd directory clear the exit code written to FILEPATH_EXIT_CODE
 const clear$ = tmuxDir$
   .filter(dir => VALID_DIRS[dir] == undefined)
   .switchMap(__ => writeFileAsync(FILEPATH_EXIT_CODE, 'NA', {}));
